@@ -27,26 +27,34 @@ Notes
 
 [5, 5, 5] (triple identical digits) is NOT considered a boomerang because the middle digit is identical to the first and last.
 */
-
-let boomArr = [1, 7, 1, 7, 1, 7, 1];
-
-let leftPointer = boomArr[0];
-let rightPointer = boomArr[2];
-let centerPointer = boomArr[1];
-let counter = 0;
-let i = 0;
-
-while (i < boomArr.length - 2)
+function countBoomerangs(boomArr)
 {
-    if (leftPointer == rightPointer && centerPointer != leftPointer)
-    {
-        counter = counter + 1;
-    }
-    leftPointer = boomArr[i];
-    centerPointer = boomArr[i+1];
-    rightPointer = boomArr[i+2];
+    
 
-    i++;
+    let leftPointer = boomArr[0];
+    let rightPointer = boomArr[2];
+    let centerPointer = boomArr[1];
+    let counter = 0;
+    let i = 0;
+    
+    while (i < boomArr.length - 2)
+    {
+        if (leftPointer == rightPointer && centerPointer != leftPointer)
+        {
+            counter = counter + 1;
+        }
+        leftPointer = boomArr[i];
+        centerPointer = boomArr[i+1];
+        rightPointer = boomArr[i+2];
+    
+        i++;
+    }
+    console.log(counter);
+    return counter;
 }
-console.log(counter);
+let boomArr = [1, 7, 1, 7, 1, 7, 1];
+countBoomerangs(boomArr);
+countBoomerangs([9, 5, 9, 5, 1, 1, 1]);
+countBoomerangs([5, 6, 6, 7, 6, 3, 9]);
+countBoomerangs([4, 4, 4, 9, 9, 9, 9]);
 
